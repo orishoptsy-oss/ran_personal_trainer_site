@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רן נהוראי - מאמן כושר אישי</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d5016 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #4ade80;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2d5016 0%, #1a1a1a 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #e8e8e8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4ade80;
+            color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background-color: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f8f8f8 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-right: 4px solid #2d5016;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d5016;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .transformations {
+            background-color: #f8f8f8;
+        }
+
+        .transformations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .transformation-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .transformation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .transformation-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            height: 300px;
+        }
+
+        .transformation-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .transformation-info {
+            padding: 1.5rem;
+        }
+
+        .transformation-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2d5016;
+        }
+
+        .transformation-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .transformation-result {
+            background-color: #f0fdf4;
+            padding: 0.8rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #2d5016;
+            text-align: center;
+        }
+
+        .reviews {
+            background-color: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border-right: 4px solid #4ade80;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .review-stars {
+            color: #4ade80;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #2d5016;
+            font-style: normal;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f8f8f8 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2d5016;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2d5016 0%, #4ade80 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .contact {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 10px;
+            border-top: 3px solid #4ade80;
+        }
+
+        .contact-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #4ade80;
+        }
+
+        .contact-item p {
+            color: #e8e8e8;
+        }
+
+        footer {
+            background-color: #0f0f0f;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.85rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">רן נהוראי</div>
+            <nav>
+                <a href="#services">שירותים</a>
+                <a href="#transformations">תוצאות</a>
+                <a href="#reviews">ביקורות</a>
+                <a href="#about">אודות</a>
+                <a href="#contact">צור קשר</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>שנה את חייך</h1>
+            <p>אימון אישי מקצועי שמתאים בדיוק לך</p>
+            <button class="cta-button">קביעת פגישת ייעוץ חינם</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>השירותים שלי</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>אימון אישי אחד על אחד</h3>
+                    <p>אימון מותאם אישית בבית, בפארק או בחדר כושר. תוכנית מקצועית שמתאימה לרמה שלך ולמטרות שלך.</p>
+                </div>
+                <div class="service-card">
+                    <h3>תכניות אימונים מותאמות</h3>
+                    <p>תכניות מדעיות שמבוססות על עקרונות הכושר המודרניים. כל תוכנית מעוצבת לפי המטרה שלך.</p>
+                </div>
+                <div class="service-card">
+                    <h3>ליווי תזונתי</h3>
+                    <p>תוכנית תזונה מותאמת שתעזור לך להגיע לתוצאות הטובות ביותר. כולל עצות וטיפים יומיומיים.</p>
+                </div>
+                <div class="service-card">
+                    <h3>מעקב ותמיכה</h3>
+                    <p>מעקב שוטף אחר ההתקדמות שלך וייעוץ מקצועי לאורך כל הדרך.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformations Section -->
+    <section class="transformations" id="transformations">
+        <div class="container">
+            <h2>שינויים שהשגנו ביחד</h2>
+            <div class="transformations-grid">
+                <div class="transformation-card">
+                    <div class="transformation-images">
+                        <div style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); display: flex; align-items: center; justify-content: center; color: #999;">לפני</div>
+                        <div style="background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%); display: flex; align-items: center; justify-content: center; color: #999;">אחרי</div>
+                    </div>
+                    <div class="transformation-info">
+                        <h3>דוד - 12 שבועות</h3>
+                        <p>הפחתת שומן: 15%</p>
+                        <p>עלייה בשריר: 8 ק"ג</p>
+                        <div class="transformation-result">תוצאה מדהימה!</div>
+                    </div>
+                </div>
+
+                <div class="transformation-card">
+                    <div class="transformation-images">
+                        <div style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); display: flex; align-items: center; justify-content: center; color: #999;">לפני</div>
+                        <div style="background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%); display: flex; align-items: center; justify-content: center; color: #999;">אחרי</div>
+                    </div>
+                    <div class="transformation-info">
+                        <h3>שרה - 16 שבועות</h3>
+                        <p>הפחתת משקל: 12 ק"ג</p>
+                        <p>עלייה בכושר: 40%</p>
+                        <div class="transformation-result">חזרה לשיא הכושר!</div>
+                    </div>
+                </div>
+
+                <div class="transformation-card">
+                    <div class="transformation-images">
+                        <div style="background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); display: flex; align-items: center; justify-content: center; color: #999;">לפני</div>
+                        <div style="background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%); display: flex; align-items: center; justify-content: center; color: #999;">אחרי</div>
+                    </div>
+                    <div class="transformation-info">
+                        <h3>יוסי - 10 שבועות</h3>
+                        <p>הפחתת שומן: 18%</p>
+                        <p>כוח: +30%</p>
+                        <div class="transformation-result">שינוי חיים!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2>מה אומרים עלי</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"רן הוא מאמן מקצועי ומעורב. הוא לא רק עוזר לך להגיע לתוצאות אלא גם משנה את הדרך שלך לחשוב על כושר ובריאות."</p>
+                    <p class="review-author">- מיכאל, 35</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"בתוך 3 חודשים ראיתי תוצאות שלא חשבתי שאפשר להשיג. רן הוא מקצוען שיודע בדיוק מה הוא עושה."</p>
+                    <p class="review-author">- ליאור, 42</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"הדרך שלו לאימון היא מדעית וחכמה. לא רק תרגילים, אלא הבנה עמוקה של הגוף והאימון."</p>
+                    <p class="review-author">- נתן, 28</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"רן הוא לא רק מאמן, הוא מנטור. הוא תמך בי בכל צעד ועזר לי להשיג יעדים שחשבתי שהם בלתי אפשריים."</p>
+                    <p class="review-author">- אלכס, 31</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>מי אני</h3>
+                    <p>שלום, אני רן נהוראי, מאמן כושר אישי עם ניסיון של מעל 10 שנים בתחום הכושר והבריאות.</p>
+                    <p>אני מאמין שכל אדם יכול להגיע לגוף ולכושר שהוא חלם עליו, בתנאי שיש תוכנית נכונה, מנטור טוב, וכמובן - עבודה קשה.</p>
+                    <p>המתודולוגיה שלי משלבת מדע מודרני, ניסיון מעשי, וגישה אישית לכל לקוח. אני לא מאמין בפתרונות כלליים - כל אדם הוא ייחודי ודורש תוכנית ייחודית.</p>
+                </div>
+                <div class="about-image">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💪</div>
+                        <p>תמונה של רן</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>צור קשר</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>טלפון</h3>
+                    <p>054-XXXXXXX</p>
+                </div>
+                <div class="contact-item">
+                    <h3>וואטסאפ</h3>
+                    <p>054-XXXXXXX</p>
+                </div>
+                <div class="contact-item">
+                    <h3>אימייל</h3>
+                    <p>ran@example.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>אינסטגרם</h3>
+                    <p>@ran_nehoray_p_trainer</p>
+                </div>
+            </div>
+            <div style="margin-top: 3rem;">
+                <button class="cta-button">קביעת פגישת ייעוץ חינם</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 רן נהוראי - מאמן כושר אישי. כל הזכויות שמורות.</p>
+    </footer>
+</body>
+</html>
